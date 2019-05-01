@@ -1,0 +1,29 @@
+Sayfa yönlendirmesi yapılırken Controller ve web.php üzerinden yapılır.
+Controller'da fonksiyon ile dönecek sayfa belirtilir.
+web.php de ise route ve method kullanılarak
+hangi controller'da hangi fonksiyonun çağırılacağı belirtilir.
+Örnek: TestController =>
+public function test(){
+        return view('test', compact('isim'));
+    }
+-------------------------------------------------
+web.php =>
+Route::get('test','TestController@test');
+-------------------------------------------------
+
+Controller oluştururken --resource parametresi kullanıldığında
+sık kullanılan fonksiyonlar controller dosyasında hazır geliyor.
+Örnek : php artisan make:controller HakkımızdaController --resource
+Bu durumda create, index, update, edit, store vs. fonksiyonları hazırdır.
+
+web.php de yönlendirme yapılırlen resource metodu kullanıldığında ise
+fonksiyon ismi yazmaya gerek kalmaz sadece controller ın adını vermek yeterlidir.
+Örnek Route::resource('HakkimizdaController');
+
+fonksiyonlar ile çağırılan sayfalara ulaşmak için
+tarayıcı adres satırında fonksiyon ismi yazılması gerekir.
+Örnek: localhost:8000/hakkimizda =>index fonksiyonu
+localhost:8000/hakkimizda/create =>create fonksiyonu
+localhost:8000/hakkimizda/1/edit =>edit fonksiyonu
+
+php artisan route:list komutu tüm route'ları listeler

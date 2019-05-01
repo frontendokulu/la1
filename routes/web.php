@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('test','TestController@test');
+//Route::get('iletisim','IletisimController@index');
+Route::resource('iletisim','IletisimController');
