@@ -27,3 +27,24 @@ localhost:8000/hakkimizda/create =>create fonksiyonu
 localhost:8000/hakkimizda/1/edit =>edit fonksiyonu
 
 php artisan route:list komutu tüm route'ları listeler
+
+model dosyalar app klasörü kök dizininde bulunur,
+veritabanı tablolarına ulaşmak için kullanılır.
+
+model dosyası içinde tablo_adi, doldurulabilir alanlar ve
+doldurulamayacak alanlar belirtilir.
+
+migration dosyaları database klasörünün içinde yer alır.
+migration ile istenen özelliklerde tablolar oluşturulur.
+
+php artisan migrate komutu ile tüm dosyalar çalıştırılır ve
+istenen tablolar otomatik olarak oluşturulur.
+reset, rollback gibi komutlar ile geri dönüş vb. işlemler yapılabilir.
+
+migration dosyası oluşturulurken dosya adı ve etkileyeceği tablo isimleri belitilir.
+Örnek:php artisan make:migration create_table_articles --create=articles
+
+migration ile tablolara yeni sütun ekleme işlemi de yapılabilir.
+Bu işlem için yeni bir migration dosyası oluşturulur bir farkla
+create yerine table parametresi kullanılır.
+Örnek: php artisan make:migration create_table_articles --table=articles
